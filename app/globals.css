@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    /* 落ち着いた緑色をプライマリカラーに設定 */
+    --primary: 142 70% 29%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 142 20% 92%;
+    --secondary-foreground: 142 70% 29%;
+
+    --muted: 142 10% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 142 20% 92%;
+    --accent-foreground: 142 70% 29%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 70% 29%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    /* ダークモードでも緑色を維持 */
+    --primary: 142 70% 29%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 142 30% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 142 30% 15%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 142 70% 29%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* 銀行風のロゴスタイル */
+  .bank-logo {
+    @apply font-bold tracking-tighter text-primary;
+  }
+
+  /* ナビゲーションリンクのスタイル */
+  .nav-link {
+    @apply font-semibold text-primary hover:text-primary/80 transition-colors;
+  }
+}
+
+/* 緑系グラデーションテキスト */
+.gradient-text-green {
+  background: linear-gradient(to right, #4ade80, #facc15, #fb923c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* 紫系グラデーションテキスト */
+.gradient-text-purple {
+  background: linear-gradient(to right, #ef4444, #ec4899, #8b5cf6, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* ダークモード用のグラデーション */
+.dark .gradient-text-green {
+  background: linear-gradient(to right, #4ade80, #fde047, #fb923c);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.dark .gradient-text-purple {
+  background: linear-gradient(to right, #f87171, #f472b6, #a78bfa, #60a5fa);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* 浮遊アニメーション */
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes float-delayed {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 7s ease-in-out infinite;
+}
